@@ -46,4 +46,7 @@ module.exports = {
   serverMiddleware: [
     '~/handlers/index.js'
   ],
+  axios: {
+    baseUrl: process.env.API_URL || 'http://localhost:3000'
+  },
 }
