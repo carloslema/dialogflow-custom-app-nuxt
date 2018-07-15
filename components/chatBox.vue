@@ -74,6 +74,7 @@ export default {
     .chatInput {
         position: absolute;
         bottom: 0;
+        width: 50%;
 
         .input {
             width: 80%;
