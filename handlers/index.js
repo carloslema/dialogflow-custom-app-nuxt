@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 const app = express();
 const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: './Lonk-5fb2a6a4fcaa.json'
+    keyFilename: process.env.CREDENTIALS_FILE || './Lonk-5fb2a6a4fcaa.json'
 });
 
 app.use(cors());
