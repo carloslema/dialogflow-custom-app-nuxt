@@ -59,9 +59,9 @@ export default {
 
 <style lang="scss">
     .messagesList {
-        height: 84vh;
+        height: 82vh;
         overflow: scroll;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         overflow-x: hidden;
     }
 
@@ -74,7 +74,7 @@ export default {
     .chatInput {
         position: absolute;
         bottom: 0;
-        width: 50%;
+        min-width: 50%;
 
         .input {
             width: 80%;
