@@ -24,7 +24,7 @@ app.post('/message', function(req, res) {
         queryInput: {
             text: {
                 text: req.body.query,
-                languageCode: 'es',
+                languageCode: process.env.BOT_LANGUAGE || 'es',
             },
         },
     };
