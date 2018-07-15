@@ -1,0 +1,36 @@
+{
+  "name": "custom-bot",
+  "version": "1.0.0",
+  "description": "Project to test bot customization on dialogflow",
+  "author": "Daniel Arita <daniel.arita@laureate.net>>>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/font-awesome": "^1.0.3",
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.1",
+    "cors": "^2.8.4",
+    "dialogflow": "^0.5.0",
+    "express": "^4.16.3",
+    "nuxt": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.9.2",
+    "nuxt-sass-resources-loader": "^2.0.2",
+    "sass-loader": "^7.0.3",
+    "vue-style-loader": "^4.1.0"
+  }
+}
