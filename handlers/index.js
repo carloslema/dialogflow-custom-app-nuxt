@@ -14,7 +14,8 @@ app.use(bodyParser.json());
 app.post('/message', function(req, res) {
     // The path to identify the agent that owns the created intent.
     console.log(req.body);
-    const sessionPath = sessionClient.sessionPath('lonk-1b8cc', req.body.sessionId);
+    const projectId = process.env.PROJECT_ID || 'lonk-1b8cc';
+    const sessionPath = sessionClient.sessionPath(projectId, req.body.sessionId);
 
     let promise;
     // The text query request.
