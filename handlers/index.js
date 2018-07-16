@@ -41,6 +41,12 @@ app.post('/message', function(req, res) {
     });
 });
 
+app.post('/converse/challenge', function(req, res){
+    res.json({
+        challenge: req.body.payload.message.text
+    });
+});
+
 module.exports = {
     path: '/handlers',
     handler: app
