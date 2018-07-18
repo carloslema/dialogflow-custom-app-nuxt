@@ -10,7 +10,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Project to test bot customization on dialogflow' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'}
+    ],
+    script: [
+      { src: '/js/recorder.js' }
     ]
   },
   modules: [
@@ -49,4 +53,7 @@ module.exports = {
   axios: {
     baseUrl: process.env.API_URL || 'http://localhost:3000'
   },
+  plugins: [
+    { src: '~/plugins/recorder', ssr: false },
+  ],
 }

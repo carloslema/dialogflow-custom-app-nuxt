@@ -6,19 +6,20 @@
                 <p>{{$store.state.name}}</p>
             </div>
             <div class="message-body messagesList">
-                <section class="section" v-for="message in messages" :key="message.id">
+                <section class="section" v-for="message in $store.state.messages" :key="message.id">
                     <msg-box :message="message.text" :align="message.type"></msg-box>
                 </section>
             </div>
         </article>
         <div class="control chatInput">
             <input class="input" type="text" placeholder="Text input" v-model="message" @change="sendQuery">
-            <a class="button is-success" @click="sendQuery">
+            <a class="button is-success submit" @click="sendQuery">
                 <span class="icon is-small">
                     <!-- <i class="fas fa-check"></i> -->
                     Send
                 </span>
             </a>
+            <recorder></recorder>
         </div>
     </div>
 </template>
@@ -38,7 +39,7 @@ export default {
     },
     methods: {
         async sendQuery({type, target}) {
-            this.messages.push({
+            this.$store.state.messages.push({
                 text: this.message,
                 type: 'right'
             });
@@ -77,11 +78,12 @@ export default {
         min-width: 50%;
 
         .input {
-            width: 80%;
+            width: 70%;
             margin-right: 10px;
         }
-        .button {
+        .submit {
             width: 15%;
+            margin-right: 10px;
         }
     }
 </style>

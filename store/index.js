@@ -8,7 +8,8 @@ const createStore = () => {
       headerColor: '#363636',
       botMsgColor: '#118fe4',
       usrMsgColor: '#e3e3e3',
-      sessionId: require('uuid/v1')()
+      sessionId: require('uuid/v1')(),
+      messages: []
     },
     mutations: {
       changeAvatar (state, url) {
