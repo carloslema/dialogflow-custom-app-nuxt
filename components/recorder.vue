@@ -42,7 +42,6 @@ export default {
                 this.recorder && this.recorder.record();
                 this.result = false;
                 this.recording = true;
-                setTimeout(this.toggleRecording, 58000)
             }
             else {
                 this.recorder && this.recorder.stop();
