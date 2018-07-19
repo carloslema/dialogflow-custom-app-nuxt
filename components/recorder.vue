@@ -12,6 +12,10 @@
 <script>
 var audio_context;
 var recorder;
+var voiceLanguage = 'Spanish Latin American Female';
+if(window.location.host.indexOf('localhost') === -1){
+    voiceLanguage = 'US English Female';
+}
 
 export default {
     data(){
@@ -75,6 +79,7 @@ export default {
                         })
                         .then(message => {
                             console.log(message);
+                            responsiveVoice.speak(message.text, voiceLanguage);
                             vm.$store.state.messages.push({
                                 text: message.text,
                                 type: 'left'
