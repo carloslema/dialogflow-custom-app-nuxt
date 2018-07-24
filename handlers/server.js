@@ -7,7 +7,7 @@ import config from './config';
 
 const app = express();
 const sessionClient = new dialogflow.SessionsClient({
-    //keyFilename: process.env.CREDENTIALS_FILE || './Lonk-5fb2a6a4fcaa.json'
+    //keyFilename: process.env.CREDENTIALS_FILE || '<JSON_CREDENTIALS_FILE_PATH>'
     credentials: {
         client_email: config.dialogflowConfig.clientEmail,
         private_key: config.dialogflowConfig.privateKey
