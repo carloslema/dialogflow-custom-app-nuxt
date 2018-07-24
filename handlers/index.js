@@ -1,53 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const dialogflow = require('dialogflow');
-var bodyParser = require('body-parser');
+require('babel-register')({
+    presets: [ 'env' ]
+})
 
-const app = express();
-const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: process.env.CREDENTIALS_FILE || './Lonk-5fb2a6a4fcaa.json'
-});
-
-app.use(cors());
-app.use(bodyParser.json());
-
-app.post('/message', function(req, res) {
-    // The path to identify the agent that owns the created intent.
-    console.log(req.body);
-    const projectId = process.env.PROJECT_ID || 'lonk-1b8cc';
-    const sessionPath = sessionClient.sessionPath(projectId, req.body.sessionId);
-
-    let promise;
-    // The text query request.
-    const request = {
-        session: sessionPath,
-        queryInput: {
-            text: {
-                text: req.body.query,
-                languageCode: process.env.BOT_LANGUAGE || 'es',
-            },
-        },
-    };
-    promise = sessionClient.detectIntent(request);
-    promise.then(responses => {
-        console.log('Detected intent');
-        console.log(responses[0].queryResult);
-        res.json({
-            text: responses[0].queryResult.fulfillmentText,
-        });
-    })
-    .catch(err => {
-        console.error('ERROR:', err);
-    });
-});
-
-app.post('/converse/challenge', function(req, res){
-    res.json({
-        challenge: req.body.payload.message.text
-    });
-});
-
-module.exports = {
-    path: '/handlers',
-    handler: app
-};
+// Import the rest of our application.
+module.exports = require('./server.js').default
